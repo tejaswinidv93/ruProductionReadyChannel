@@ -25,8 +25,8 @@
 <div class="box"><h3 style="margin-top:0">Readiness score</h3><div class="mono" style="font-size:40px;color:var(--cyan)" id="ckp">0%</div><div class="bar"><i id="ckb"></i></div><p class="sub" style="margin-top:12px" id="ckm">Start ticking items on the left.</p></div></div>
 
 <h2 class="sec" id="contact">Contact</h2>
-<div class="box"><p style="margin-top:0">Questions, topic ideas or collaborations? Email <a href="mailto:[removed]">[removed]</a>.</p>
-<a class="btn" href="contact.html">✉ Send an enquiry</a> <button class="btn" id="copy">Copy address</button></div>
+<div class="box"><p style="margin-top:0">Questions, topic ideas or collaborations? Send an enquiry through the contact form.</p>
+<a class="btn" href="contact.html">✉ Send an enquiry</a></div>
 </main>
 <script>
 const lines=["$ kubectl rollout status deploy/api","deployment \"api\" successfully rolled out","$ echo \"subscribe @ruproductionready\""];
@@ -64,6 +64,5 @@ function upd(){const c=[...ck.querySelectorAll('input')].map((b,i)=>b.checked?i:
 document.getElementById('ckp').textContent=p+'%';document.getElementById('ckb').style.width=p+'%';
 document.getElementById('ckm').textContent=p==100?'Ship it. 🚀':p>=70?'Almost there. Close the gaps before launch.':p>0?'Keep going. Each item prevents a real outage.':'Start ticking items on the left.';
 try{localStorage.setItem('prc-check',JSON.stringify(c))}catch(e){}}ck.onchange=upd;upd();
-document.getElementById('copy').onclick=e=>{navigator.clipboard&&navigator.clipboard.writeText('[removed]');e.target.textContent='Copied ✓'};
 </script>
-<footer class="bot"><div class="wrap"><div><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div><div>&copy; 2026 Production Ready · <a href="mailto:[removed]">[removed]</a></div></div></footer></body></html>
+<footer class="bot"><div class="wrap"><div><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div><div>&copy; 2026 Production Ready · <a href="contact.html">Contact</a></div></div></footer></body></html>
