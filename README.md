@@ -1,11 +1,13 @@
 # Production Ready – channel website
 
-Static site (GitHub Pages) for the Production Ready channel: home, privacy policy and terms of service, used for the TikTok developer app.
+Static blog-style site (GitHub Pages) for the Production Ready channel, also used as the TikTok developer app's website.
 
-- `index.html` – home with YouTube, Instagram and TikTok links
-- `privacy.html`, `terms.html`, `style.css`
+- `index.html` – home: hero with logo and terminal animation, searchable/filterable posts, quiz, production-readiness checklist, contact
+- `contact.html` – enquiry page embedding a Google Form (set `FORM_URL` in the file)
+- `privacy.html`, `terms.html` – privacy policy and terms (URLs must not change; TikTok uses them)
+- `style.css`, `assets/` (logo, favicon)
 
-Served at https://tejaswinidv93.github.io/ruProductionReadyChannel/ (Settings → Pages → Deploy from branch `main`, folder `/`).
-TikTok URL-prefix verification: upload TikTok's signature file to the repo root.
+Live at https://tejaswinidv93.github.io/ruProductionReadyChannel/ (Pages: branch `main`, folder `/`).
+Contact: tejaswinidv93@gmail.com. TikTok URL-prefix verification: put TikTok's signature file in the repo root.
 
 Public repo: never commit tokens, keys or passwords.
