@@ -1,10 +1,69 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Production Ready</title><link rel="stylesheet" href="style.css"></head><body><main>
-<h1>Production Ready</h1>
-<p>Short, practical videos on system design, AI agents and context engineering for engineers shipping real systems.</p>
-<div class="links">
-<a href="https://youtube.com/@ruproductionready">YouTube</a>
-<a href="https://www.instagram.com/ruproductionready/">Instagram</a>
-<a href="https://www.tiktok.com/@ruproductionready">TikTok</a>
-</div>
-<p class="muted">This site also documents the small tool the channel uses to publish its own videos to YouTube, Instagram and TikTok.</p>
-<footer><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><p>&copy; 2026 Production Ready</p></footer></main></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Production Ready</title><meta name="description" content="Production Ready: system design, AI agents and context engineering explained in short videos."><link rel="icon" href="assets/favicon.png"><link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/logo.png" alt="Production Ready logo"><span>PRODUCTION <b>READY</b></span></a><nav class="links"><a href="index.html#posts">Posts</a><a class="hide-sm" href="index.html#quiz">Quiz</a><a href="contact.html">Contact</a></nav></div></header>
+<main class="wrap">
+<section class="hero"><div>
+<h1>Ship systems that are <b>production ready</b>.</h1>
+<p>Short, practical breakdowns of system design, AI agents and context engineering, for engineers who build real systems.</p>
+<div class="term mono" aria-live="polite"><div class="dots"><i></i><i></i><i></i></div><span id="typed"></span><span class="caret"></span></div>
+<div class="socials">
+<a class="btn" href="https://youtube.com/@ruproductionready" target="_blank" rel="noopener">▶ YouTube</a>
+<a class="btn" href="https://www.instagram.com/ruproductionready/" target="_blank" rel="noopener">◎ Instagram</a>
+<a class="btn" href="https://www.tiktok.com/@ruproductionready" target="_blank" rel="noopener">♪ TikTok</a>
+</div></div>
+<img src="assets/logo.png" alt="Production Ready channel logo"></section>
+
+<h2 class="sec" id="posts">Latest posts</h2><p class="sub">Notes behind the videos. Search, filter by topic, and open a post for the key takeaways.</p>
+<div class="tools"><input id="q" type="search" placeholder="Search posts…" aria-label="Search posts"><div class="chips" id="chips"></div></div>
+<div class="grid" id="grid"></div><p class="empty" id="empty">No posts match. Try another word or topic.</p>
+
+<h2 class="sec" id="quiz">Quick quiz</h2><p class="sub">Five questions. How production ready are you?</p>
+<div class="quiz"><div class="q" id="qq"></div><div class="opts" id="qo"></div><div class="fb" id="qf"></div>
+<div class="row"><span class="mono" id="qs"></span><button class="btn" id="qn">Next question →</button></div></div>
+
+<h2 class="sec">Before you deploy</h2><p class="sub">A production-readiness checklist. Tick what your service already has.</p>
+<div class="cards2"><div class="box check" id="ck"></div>
+<div class="box"><h3 style="margin-top:0">Readiness score</h3><div class="mono" style="font-size:40px;color:var(--cyan)" id="ckp">0%</div><div class="bar"><i id="ckb"></i></div><p class="sub" style="margin-top:12px" id="ckm">Start ticking items on the left.</p></div></div>
+
+<h2 class="sec" id="contact">Contact</h2>
+<div class="box"><p style="margin-top:0">Questions, topic ideas or collaborations? Email <a href="mailto:[removed]">[removed]</a>.</p>
+<a class="btn" href="contact.html">✉ Send an enquiry</a> <button class="btn" id="copy">Copy address</button></div>
+</main>
+<script>
+const lines=["$ kubectl rollout status deploy/api","deployment \"api\" successfully rolled out","$ echo \"subscribe @ruproductionready\""];
+(function(){const el=document.getElementById('typed');let i=0,j=0,out='';(function t(){if(i>=lines.length){setTimeout(()=>{i=0;j=0;out='';el.textContent='';t()},3000);return}
+if(j<=lines[i].length){el.textContent=out+lines[i].slice(0,j++);setTimeout(t,40)}else{out+=lines[i]+"\n";el.textContent=out;i++;j=0;setTimeout(t,500)}})();el.style.whiteSpace='pre-wrap'})();
+const posts=[
+{t:"System Design",h:"The sidecar pattern, explained",p:"Move logging, proxies and TLS out of your service and into a helper container that runs beside it.",k:["One sidecar per service instance, same lifecycle","Great for cross-cutting concerns: mTLS, metrics, retries","Cost: extra latency hop and resources per pod"]},
+{t:"System Design",h:"Retries without a retry storm",p:"Why naive retries take down systems, and how backoff, jitter and budgets fix it.",k:["Exponential backoff plus random jitter","Cap retries with a retry budget","Only retry idempotent operations"]},
+{t:"System Design",h:"Circuit breakers in practice",p:"Fail fast when a dependency is down instead of piling up threads and timeouts.",k:["Closed → open → half-open states","Pair with timeouts and fallbacks","Alert on breaker state changes"]},
+{t:"AI Agents",h:"AI agent architectures",p:"Single agent, router, planner-executor and multi-agent: when each one is worth it.",k:["Start with one agent and good tools","Add a planner only for long multi-step tasks","Multi-agent adds cost and coordination bugs"]},
+{t:"AI Agents",h:"Containerized agents",p:"Run every agent in its own sandbox so tools can't touch what they shouldn't.",k:["Isolate file system and network per agent","Scope credentials to the task","Log every tool call"]},
+{t:"Context Engineering",h:"What is context engineering?",p:"The model only knows what is in its context window. Designing that window is the job.",k:["Pick the right facts, not the most facts","Order matters: instructions, data, question","Measure with evals, not vibes"]},
+{t:"Context Engineering",h:"Context poisoning",p:"One wrong fact in the context can steer every answer after it. How to spot and stop it.",k:["Validate retrieved content before use","Keep tool output separate from instructions","Reset or summarize long sessions"]},
+{t:"LLM Basics",h:"LLM temperature knobs",p:"Temperature, top-p and max tokens: what each knob really changes in the output.",k:["Low temperature for facts and code","Higher temperature for brainstorming","Change one knob at a time"]}];
+const topics=["All",...new Set(posts.map(p=>p.t))];let cur="All";
+const chips=document.getElementById('chips'),grid=document.getElementById('grid'),q=document.getElementById('q');
+topics.forEach(t=>{const b=document.createElement('button');b.className='chip'+(t==cur?' on':'');b.textContent=t;b.onclick=()=>{cur=t;[...chips.children].forEach(c=>c.classList.toggle('on',c==b));render()};chips.appendChild(b)});
+function render(){const s=q.value.toLowerCase();const list=posts.filter(p=>(cur=="All"||p.t==cur)&&(p.h+p.p+p.k.join(' ')).toLowerCase().includes(s));
+grid.innerHTML=list.map(p=>`<article class="post"><span class="tag">${p.t}</span><h3>${p.h}</h3><p>${p.p}</p><details><summary>Key takeaways</summary><div><ul>${p.k.map(x=>`<li>${x}</li>`).join('')}</ul><a href="https://youtube.com/@ruproductionready" target="_blank" rel="noopener">Watch on YouTube →</a></div></details><div class="meta">${Math.max(1,Math.round((p.p+p.k.join(' ')).split(' ').length/40))} min read</div></article>`).join('');
+document.getElementById('empty').style.display=list.length?'none':'block'}q.oninput=render;render();
+const Q=[["What does a sidecar container share with its main service?",["Its pod and lifecycle","Its database only","Nothing, it runs on another cluster"],0,"A sidecar runs beside the service, in the same pod, and starts and stops with it."],
+["Why add jitter to retry backoff?",["To make retries faster","To stop clients retrying in sync","To skip failed requests"],1,"Random jitter spreads retries out so clients don't hammer a recovering service together."],
+["A circuit breaker in the open state…",["Sends all calls through","Fails calls fast without calling the dependency","Restarts the dependency"],1,"Open means calls fail fast until a half-open probe succeeds."],
+["Which temperature suits generating code?",["Low (0–0.3)","High (1.2+)","It never matters"],0,"Low temperature keeps output focused and repeatable."],
+["Context poisoning happens when…",["The context window is empty","A wrong fact in context steers later answers","The model is too small"],1,"Bad data in the window keeps influencing responses until it's removed."]];
+let qi=0,sc=0,done=false;const qq=document.getElementById('qq'),qo=document.getElementById('qo'),qf=document.getElementById('qf'),qs=document.getElementById('qs'),qn=document.getElementById('qn');
+function showQ(){if(qi>=Q.length){qq.textContent=`You scored ${sc}/${Q.length}. ${sc>=4?'Production ready! 🚀':'Watch a few more Shorts and try again.'}`;qo.innerHTML='';qf.textContent='';qn.textContent='Restart quiz';qs.textContent='';return}
+const [t,o,a,e]=Q[qi];done=false;qq.textContent=t;qf.textContent='';qs.textContent=`Question ${qi+1}/${Q.length} · Score ${sc}`;qn.textContent='Next question →';
+qo.innerHTML='';o.forEach((x,i)=>{const b=document.createElement('button');b.textContent=x;b.onclick=()=>{if(done)return;done=true;if(i==a)sc++;b.classList.add(i==a?'right':'wrong');qo.children[a].classList.add('right');qf.textContent=(i==a?'Correct. ':'Not quite. ')+e;qs.textContent=`Question ${qi+1}/${Q.length} · Score ${sc}`};qo.appendChild(b)})}
+qn.onclick=()=>{if(qi>=Q.length){qi=0;sc=0}else qi++;showQ()};showQ();
+const items=["Health checks and readiness probes","Timeouts on every network call","Retries with backoff and jitter","Structured logs with request IDs","Metrics and alerts on errors and latency","Graceful shutdown","Rate limiting","Secrets outside the code","Rollback plan","Load tested at 2x expected traffic"];
+const ck=document.getElementById('ck');let saved=[];try{saved=JSON.parse(localStorage.getItem('prc-check')||'[]')}catch(e){}
+items.forEach((x,i)=>{const l=document.createElement('label');l.innerHTML=`<input type="checkbox" ${saved.includes(i)?'checked':''}><span>${x}</span>`;ck.appendChild(l)});
+function upd(){const c=[...ck.querySelectorAll('input')].map((b,i)=>b.checked?i:-1).filter(i=>i>=0);const p=Math.round(c.length/items.length*100);
+document.getElementById('ckp').textContent=p+'%';document.getElementById('ckb').style.width=p+'%';
+document.getElementById('ckm').textContent=p==100?'Ship it. 🚀':p>=70?'Almost there. Close the gaps before launch.':p>0?'Keep going. Each item prevents a real outage.':'Start ticking items on the left.';
+try{localStorage.setItem('prc-check',JSON.stringify(c))}catch(e){}}ck.onchange=upd;upd();
+document.getElementById('copy').onclick=e=>{navigator.clipboard&&navigator.clipboard.writeText('[removed]');e.target.textContent='Copied ✓'};
+</script>
+<footer class="bot"><div class="wrap"><div><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div><div>&copy; 2026 Production Ready · <a href="mailto:[removed]">[removed]</a></div></div></footer></body></html>
