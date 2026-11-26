@@ -8,6 +8,6 @@ Static blog-style site (GitHub Pages) for the Production Ready channel, also use
 - `style.css`, `assets/` (logo, favicon)
 
 Live at https://tejaswinidv93.github.io/ruProductionReadyChannel/ (Pages: branch `main`, folder `/`).
-Contact: [removed]. TikTok URL-prefix verification: put TikTok's signature file in the repo root.
+Contact: via the Google Form on `contact.html` (no email address on the site). TikTok URL-prefix verification: put TikTok's signature file in the repo root.
 
 Public repo: never commit tokens, keys or passwords.
